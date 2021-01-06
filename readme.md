@@ -1,3 +1,8 @@
+**Check out Releases for executables**
+**The Linux binary is tested ony in ubuntu 20.04LTS**
+you can create your distributable using pyinstaller
+
+
 Table of Contents
 =================
 
