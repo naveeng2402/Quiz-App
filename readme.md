@@ -6,12 +6,21 @@ Table of Contents
       * [Pre Requisites](#pre-requisites)
       * [Linux](#linux)
       * [Windows](#windows)
-   * [Usage](#usage)
+   * [Usage(Setting up the files)](#usagesetting-up-the-files)
       * [Editing data.json](#editing-datajson)
          * [Welcome](#welcome)
          * [Teams](#teams)
          * [GeneralRules](#generalrules)
          * [Rounds](#rounds)
+      * [Editing qns.json](#editing-qnsjson)
+      * [Editing media files](#editing-media-files)
+   * [Usage](#usage)
+      * [Welcome](#welcome-1)
+      * [Teams](#teams-1)
+      * [General Rules](#general-rules)
+      * [App](#app)
+   * [TOOLS](#tools)
+
 
 
 
@@ -184,6 +193,57 @@ Here enter the members of each teams and hit **Done** to continue
 ![Teams Screen](Others/images/generalrules.jpg)
 
 Click on the **GOT IT!!!** to continue
+--
 
 ## App
 ![App Screen](Others/images/app1.jpg)
+
+This is the screen you will use to conduct the QUIZ
+
+click on **Start Round** to set scorings appropriate to cuurent round
+---
+
+![App Screen](Others/images/app2.jpg)
+
+Then use the navigator in the right side to move to the desired question
+---
+
+![App Screen](Others/images/app3.jpg)
+
+
+after moving to the question, you can start the timer by clicking the **Start Timer** Button and Check if the answer is right using **Check Answer** Button after clicking it
+---
+
+![App Screen](Others/images/app4.jpg)
+
+dragging from the bottom to top you can open explaination for each question and doing it from the bottom of the app you can see the scores of individual teams
+---
+
+![App Screen](Others/images/app5.jpg)
+
+using the top bar the scores are given manually by the hosts
+---
+
+---
+**Focus more on the content not on the boring prelim works!!!**
+---
+
+---
+
+
+# TOOLS
+
+website: [Use this free online HTML Editor](https://html-online.com/editor/)
+
+![Website](Others/images/web.jpg)
+
+In addtion to the above tool use the **Tools/Html_edit.py*** to format the html to work
+
+For this paste the HTML in the **Tools/text.txt** file and save it, Then run the above mentioned file.
+
+Then you will be all set to add it to the Json
+
+
+***HAPPY QUIZING**
+---
+---
