@@ -1,0 +1,42 @@
+{
+    "Welcome":  
+        {
+            "Topic": "Topic of the Quiz",
+            "Hosts": ["Host 1", "Host 2"]
+        },
+
+    "Teams":
+        {
+            "Team_Names"   : ["Team A", "Team B"],
+            "Players_NO"   : 3
+        },
+
+    "GeneralRules":     "<p style='text-align: center;font-size:100px'><strong>General Rules</strong></p>",
+
+
+    "Rounds":
+        {
+            "Round 1":
+                {
+                    "nos"   : 1,
+                    "rules" : "<p style='text-align: center;font-size:50px'>Rules for Round 1</p>",
+                    "tick"  : 50,
+                    "plus"  : 25,
+                    "minus" : 0,
+                    "time"  : 10
+                },
+
+            "Round 2":
+                {
+                    "nos"   : 1,
+                    "rules" : "<p style=\"text-align: center;\">Rules for Round 2</p>",
+                    "tick"  : 50,
+                    "plus"  : 25,
+                    "minus" : -10,
+                    "time"  : 30
+                }
+        }
+
+        
+
+}
