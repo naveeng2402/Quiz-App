@@ -1,16 +1,16 @@
 {
     "Round_1_Q1" : 
         {
-            "content" : "<h1>Q1\n</span>\n</h1>",
-            "options" : ["a1", "b1", "c1"],
-            "answer"  : "c1",
-            "explain" : ""
+            "content" : "<p style='text-align: center; font-size: 30px;'>Creator of this</p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'><strong>Dynamic Quiz App</strong></span></p>",
+            "options" : ["Naveen", "ElonMusk", "GuidoVanRossom"],
+            "answer"  : "Naveen",
+            "explain" : "<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'><strong>Dynamic Quiz App</strong></span></p>\n<p style='text-align: center; font-size: 30px;'><strong>is</strong></p>\n<p style='text-align: center; font-size: 30px;'><strong>Created by</strong></p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #800080;'><strong>Naveen</strong></span></p>"
         },
     "Round_2_Q1" : 
         {
-            "content" : "<h1>Q2\n</span>\n</h1>",
-            "options" : ["a2", "b2", "c2"],
-            "answer"  : "b2",
-            "explain" : "Q2 Explaination"
+            "content" : "<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'><strong>Dynamic Quiz App</strong></span></p>\n<p style='text-align: center; font-size: 30px;'><strong>is</strong></p>\n<p style='text-align: center; font-size: 30px;'><strong>made using</strong></p>",
+            "options" : ["Tkinter", "PyGame", "PyQt5"],
+            "answer"  : "PyQt5",
+            "explain" : "<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'><strong>Dynamic Quiz App</strong></span></p>\n<p style='text-align: center; font-size: 30px;'><strong>is</strong></p>\n<p style='text-align: center; font-size: 30px;'><strong>made using</strong></p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #800080;'><strong>PyQt5 Framework</strong></span></p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #800080;'><strong><img src='QuestionImages/PyQt5.jpg' alt='pyqt' width='50' height='50' /></strong></span></p>"
         }
 }
