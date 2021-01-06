@@ -547,7 +547,7 @@ def Timer_Connect(self, rounds, _rounds, rounds_info, qns):
             if sec == 0 :
                 ans = False 
                 label.setText('Time Up')
-                playsound('Audio/TimeUp.mp3', block=False)
+                playsound('Audio/TimeUp.mp3')
                 self.TimerControl = False
         if ans == True:
             label.setText('ANSWERED')
