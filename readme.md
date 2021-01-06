@@ -167,6 +167,8 @@ You can change those sounds by replacing the appropriate audio(mp3) files in the
 
 The Background images can be changed by replacing the appropriate inage (jpg) files in the with the same in the **BG/** folder
 
+**Note:** Please make sure that your images are less than 20KB and you audio files are short too 
+
 # Usage
     In This part let us go through the gui part of the application. There are 4 screens in total.
         -Welcome
