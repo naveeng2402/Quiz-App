@@ -41,11 +41,11 @@ Table of Contents
     Move the Quiz file from the dist folder to the root folder and execute it in the terminal
 
 ```bash
-./Quiz
+./main
 ```
 
 ## Windows
-    Move the Quiz.exe file from the dist folder to the root folder and execute it
+    Move the main.exe file from the dist folder to the root folder and execute it
 
 
 # Usage(Setting up the files)
