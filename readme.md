@@ -4,7 +4,7 @@ you can create your distributable using pyinstaller
 
 
 Table of Contents
-=================
+================
 
    * [Table of Contents](#table-of-contents)
    * [Setting up](#setting-up)
