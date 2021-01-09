@@ -138,18 +138,27 @@ def Cross_connect(self):
 def Table_gen(self, _teams, teams, teams_info):
     
     def headers():
-        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setColumnCount(3)
         self.tableWidget.setRowCount(len(teams))
         
         for i in range(2):
             self.tableWidget.setHorizontalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
-        self.tableWidget.setHorizontalHeaderLabels(['Members', 'Score'])
-        self.tableWidget.setColumnWidth(0, 250)
+        self.tableWidget.setHorizontalHeaderLabels(['Teams', 'Members', 'Score'])
+        self.tableWidget.setColumnWidth(0, 100)
+        self.tableWidget.setColumnWidth(2, 10)
 
         for i in range(len(_teams)):
             self.tableWidget.setVerticalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
             self.tableWidget.setRowHeight(i,100)
-        self.tableWidget.setVerticalHeaderLabels(teams)
+        self.tableWidget.setVerticalHeaderLabels(['' for i in range(len(_teams))])
+     
+    def teams_fill():
+        for i in range(len(teams)):
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setFlags(QtCore.Qt.ItemIsEnabled)
+            item.setText(teams[i])
+            self.tableWidget.setItem(i, 0, item)
         
     def memebers():
         
@@ -161,7 +170,7 @@ def Table_gen(self, _teams, teams, teams_info):
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setFlags(QtCore.Qt.ItemIsEnabled)
             item.setText(membs)
-            self.tableWidget.setItem(i, 0, item)
+            self.tableWidget.setItem(i, 1, item)
         
     def score():
         for i in range(len(teams)):
@@ -170,9 +179,10 @@ def Table_gen(self, _teams, teams, teams_info):
             item.setFlags(QtCore.Qt.ItemIsEnabled)
             item.setText('0')
             exec(f'''self.{_teams[i]}_score_disp = item''')
-            self.tableWidget.setItem(i, 1, item)
+            self.tableWidget.setItem(i, 2, item)
     
     headers()
+    teams_fill()
     memebers()
     score()
     
