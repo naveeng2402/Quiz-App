@@ -2,6 +2,7 @@ from typing import AnyStr
 from PyQt5 import QtWidgets, QtCore, QtGui
 from playsound import playsound
 from threading import Thread
+from random import randint
 from time import sleep
 
 def Scoring_gen(self, teams, _teams, source, layout):
@@ -12,6 +13,7 @@ def Scoring_gen(self, teams, _teams, source, layout):
         eval(f'''self.{_teams[i]}_Scoring.setFrameShape(QtWidgets.QFrame.NoFrame)''')
         eval(f'''self.{_teams[i]}_Scoring.setFrameShadow(QtWidgets.QFrame.Raised)''')
         eval(f'''self.{_teams[i]}_Scoring.setObjectName("{_teams[i]}_Scoring")''')
+        eval(f'''self.{_teams[i]}_Scoring.setStyleSheet("background-color:rgb({randint(100,150)}, {randint(100,150)}, {randint(50,150)});color:rgb(255,255,255)")''')
         
         exec(f'''self.{_teams[i]}_Scoring_Layout = QtWidgets.QGridLayout(self.{_teams[i]}_Scoring)''')
         eval(f'''self.{_teams[i]}_Scoring_Layout.setContentsMargins(0, 0, 0, 0)''')
@@ -47,8 +49,11 @@ def Scoring_gen(self, teams, _teams, source, layout):
         eval(f'''self.{_teams[i]}_Plus.setObjectName("{_teams[i]}_Plus")''')
         eval(f'''self.{_teams[i]}_Scoring_Layout.addWidget(self.{_teams[i]}_Plus, 1, 1, 1, 1)''')
         
+        font = QtGui.QFont()
+        font.setBold(True)
         exec(f'''self.{_teams[i]}_Label = QtWidgets.QLabel(self.{_teams[i]}_Scoring)''')
         eval(f'''self.{_teams[i]}_Label.setAlignment(QtCore.Qt.AlignCenter)''')
+        eval(f'''self.{_teams[i]}_Label.setFont(font)''')
         eval(f'''self.{_teams[i]}_Label.setText('{teams[i]}')''')
         eval(f'''self.{_teams[i]}_Label.setObjectName("{_teams[i]}_Label")''')
     
