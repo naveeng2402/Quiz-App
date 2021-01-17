@@ -16,9 +16,9 @@ from App.App_gen import Scoring_gen, Modify_scroing, Scoring_Actions, Table_gen,
 
 class AppMain():
     
-    def __init__(self, Teams_info: dict = {'Team A': ['Naveen1','Naveen2', 'Naveen_A'], 'Team B': ['Naveen3', 'Naveen4', 'Naveen_B'], 'Team C': ['Naveen5', 'Naveen6', 'Naveen_C']}, rounds = {}, qns = {}):
+    def __init__(self, Teams_info: dict = {'Team A': ['Naveen1','Naveen2', 'Naveen_A'], 'Team B': ['Naveen3', 'Naveen4', 'Naveen_B'], 'Team C': ['Naveen5', 'Naveen6', 'Naveen_C']}, rounds = {}, qns = {}, color = False):
         self.Dialog = QtWidgets.QDialog()
-        
+        self.color = color
         # Getting the values and making datastructures
         self.Team_Info      = Teams_info
         self.rounds_Info    = rounds

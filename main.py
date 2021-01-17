@@ -101,7 +101,7 @@ def App():
     round      = data['Rounds']
     _qns       = qns
     
-    app_scr = AppMain(teams_info, round, _qns)
+    app_scr = AppMain(teams_info, round, _qns, color)
     
     app_scr.esc = QtWidgets.QShortcut(QtGui.QKeySequence('Esc'), app_scr.Dialog)
     app_scr.esc.activated.connect(summa)
@@ -141,6 +141,9 @@ if __name__ == '__main__':
     with open('Json/qns.json') as f:
         qns = json.load(f)
         
+    color = data['color']
+    # print(color)
+
     # screen = get_monitors()[0]
     # max_x, max_y = (screen.width, screen.height)
         
