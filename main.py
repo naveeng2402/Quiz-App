@@ -7,6 +7,7 @@ from Welcome.Welcome import Welcome
 from Teams.Teams_main import TeamsMain
 from App.App_main import AppMain
 from GeneralRules.generalRules import GeneralRules
+from End.end import End
 
 def summa(): pass # This is used to ByPass the Esc button action that causes trouble
 
@@ -93,6 +94,10 @@ def teams_screen():
 
 def App():
     
+    def action():
+        x = app_scr.tableWidget.item(0,1).text()
+        end(x)
+    
     widget.setStyleSheet('''
                          border-image: url(BG/BG_blur.jpg)
                          ''')
@@ -105,6 +110,10 @@ def App():
     
     app_scr.esc = QtWidgets.QShortcut(QtGui.QKeySequence('Esc'), app_scr.Dialog)
     app_scr.esc.activated.connect(summa)
+    
+    app_scr.end_button.clicked.connect(action)
+    app_scr.tableWidget.sortByColumn(2, QtCore.Qt.DescendingOrder)
+    
     
     widget.addWidget(app_scr.Dialog)
     widget.setCurrentWidget(app_scr.Dialog)
@@ -129,6 +138,17 @@ def general_rules():
     _general_rules.esc.activated.connect(summa)
 
 
+def end(winners = "SRIDEVI"):
+    
+    end_screen = End(winners)
+    widget.addWidget(end_screen)
+    widget.setCurrentWidget(end_screen)
+    end_screen.esc = QtWidgets.QShortcut(QtGui.QKeySequence('Esc'), end_screen)
+    end_screen.esc.activated.connect(summa)
+    end_screen.frame.setStyleSheet("""
+                                 border-image: url(BG/Trans.png)
+                                   """)
+    
 
 if __name__ == '__main__':
     

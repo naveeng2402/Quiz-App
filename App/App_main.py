@@ -98,7 +98,16 @@ class AppMain():
             try :Modify_scroing(self,self._Team_Names, 'r')
             except : pass
             
-        self.tableWidget = QtWidgets.QTableWidget(self.Main_splitter)
+        self.Tab_frame = QtWidgets.QFrame(self.Main_splitter)
+        self.Tab_frame.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.Tab_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.Tab_frame.setObjectName("Tab_frame")
+        
+        self.Tab_frame_Layout = QtWidgets.QVBoxLayout(self.Tab_frame)
+        self.Tab_frame_Layout.setContentsMargins(0, 0, 0, 0)
+        self.Tab_frame_Layout.setObjectName("Tab_frame_Layout")
+            
+        self.tableWidget = QtWidgets.QTableWidget(self.Tab_frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -119,6 +128,10 @@ class AppMain():
 
                 
         Table_gen(self, _teams = self._Team_Names, teams = self.Team_Names, teams_info=self.Team_Info)
+        self.Tab_frame_Layout.addWidget(self.tableWidget)
+        
+        self.end_button = QtWidgets.QPushButton("END QUIZ",self.Tab_frame)
+        self.Tab_frame_Layout.addWidget(self.end_button)
         
         Scoring_Actions(self)
         self.Main_splitter.setSizes([1,0])
