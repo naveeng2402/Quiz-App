@@ -357,13 +357,13 @@ def Questions_gen(self, qns, rounds, _rounds, rounds_info):
             # The options check buttons has lower case o in its name and else has upper case O in their names
 
             for k in range(len(options)):
-                exec(f'''self.{_rounds[i]}_Q{j+1}_option_{k+1} = QtWidgets.QPushButton(self.{_rounds[i]}_Q{j+1}_Option)''')
+                exec(f'''self.{_rounds[i]}_Q{j+1}_option_{k+1} = QtWidgets.QRadioButton(self.{_rounds[i]}_Q{j+1}_Option)''')
                 exec(f'''sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)''')
                 eval(f'''self.{_rounds[i]}_Q{j+1}_option_{k+1}.setSizePolicy(sizePolicy)''')
                 eval(f'''self.{_rounds[i]}_Q{j+1}_option_{k+1}.setCheckable(True)''')
                 eval(f'''self.{_rounds[i]}_Q{j+1}_option_{k+1}.setText('{options[k]}')''')
                 eval(f'''self.{_rounds[i]}_Q{j+1}_option_{k+1}.setStyleSheet(\'\'\'
-                                                                            QPushButton::checked
+                                                                            QRadioButton::checked
                                                                             {{
                                                                             background-color: blue;
                                                                             color: white
@@ -417,7 +417,7 @@ def Questions_gen(self, qns, rounds, _rounds, rounds_info):
             eval(f'''self.{_rounds[i]}_Q{j+1}_ExplainContent.setObjectName("{_rounds[i]}_Q{j+1}_ExplainContent")''')
             eval(f'''self.{_rounds[i]}_Q{j+1}_Explaination_Layout.addWidget(self.{_rounds[i]}_Q{j+1}_ExplainContent)''')
 
-            exec(f'''self.{_rounds[i]}_Q{j+1}_Splitter.setSizes([500000000,1,0])''')
+            exec(f'''self.{_rounds[i]}_Q{j+1}_Splitter.setSizes([5, 4,0])''')
     
 
 def Navig_connect(self, _rounds):
