@@ -12,7 +12,7 @@ Note: You can know more about editing the json file in the readme.md or readme.t
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from time import sleep
-from App.App_gen import Scoring_gen, Modify_scroing, Scoring_Actions, Table_gen, Navig_gen, Questions_gen, Navig_connect, Qn_Connect, scores, Timer_Connect
+from App.App_gen import Scoring_gen, Modify_scroing, Scoring_Actions, Score_Table_gen, Navig_gen, Questions_gen, Navig_connect, Qn_Connect, scores, Timer_Connect
 
 class AppMain():
     
@@ -98,16 +98,16 @@ class AppMain():
             try :Modify_scroing(self,self._Team_Names, 'r')
             except : pass
             
-        self.Tab_frame = QtWidgets.QFrame(self.Main_splitter)
-        self.Tab_frame.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.Tab_frame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.Tab_frame.setObjectName("Tab_frame")
+        # self.Tab_frame = QtWidgets.QFrame(self.Main_splitter)
+        # self.Tab_frame.setFrameShape(QtWidgets.QFrame.NoFrame)
+        # self.Tab_frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        # self.Tab_frame.setObjectName("Tab_frame")
         
-        self.Tab_frame_Layout = QtWidgets.QVBoxLayout(self.Tab_frame)
-        self.Tab_frame_Layout.setContentsMargins(0, 0, 0, 0)
-        self.Tab_frame_Layout.setObjectName("Tab_frame_Layout")
+        # self.Tab_frame_Layout = QtWidgets.QVBoxLayout(self.Tab_frame)
+        # self.Tab_frame_Layout.setContentsMargins(0, 0, 0, 0)
+        # self.Tab_frame_Layout.setObjectName("Tab_frame_Layout")
             
-        self.tableWidget = QtWidgets.QTableWidget(self.Tab_frame)
+        self.tableWidget = QtWidgets.QTableWidget(self.Main_splitter)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -119,7 +119,7 @@ class AppMain():
         self.tableWidget.setFrameShadow(QtWidgets.QFrame.Raised)
         self.tableWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
         self.tableWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
-        # self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.tableWidget.setAlternatingRowColors(False)
         self.tableWidget.setSortingEnabled(True)
         self.tableWidget.setObjectName("tableWidget")
@@ -127,14 +127,14 @@ class AppMain():
         self.tableWidget.verticalHeader().setStretchLastSection(True)
 
                 
-        Table_gen(self, _teams = self._Team_Names, teams = self.Team_Names, teams_info=self.Team_Info)
-        self.Tab_frame_Layout.addWidget(self.tableWidget)
+        Score_Table_gen(self, _teams = self._Team_Names, teams = self.Team_Names, teams_info=self.Team_Info)
         
-        self.end_button = QtWidgets.QPushButton("END QUIZ",self.Tab_frame)
-        self.Tab_frame_Layout.addWidget(self.end_button)
+        # self.end_button = QtWidgets.QPushButton("END QUIZ",self.Tab_frame)
+        # self.Tab_frame_Layout.addWidget(self.end_button)
+        self.end = QtWidgets.QShortcut(QtGui.QKeySequence(QtCore.Qt.SHIFT+QtCore.Qt.Key_Escape), self.Dialog)
         
         Scoring_Actions(self)
-        self.Main_splitter.setSizes([1,0])
+        # self.Main_splitter.setSizes([1,0])
         
 
         self.App_frame = QtWidgets.QFrame()

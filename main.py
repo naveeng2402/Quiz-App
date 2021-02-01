@@ -95,8 +95,8 @@ def teams_screen():
 def App():
     
     def action():
-        x = app_scr.tableWidget.item(0,1).text()
-        end(x)
+        # x = app_scr.tableWidget.item(0,1).text()
+        end("SHIFT+ESC")
     
     widget.setStyleSheet('''
                          border-image: url(BG/BG_blur.jpg)
@@ -111,7 +111,7 @@ def App():
     app_scr.esc = QtWidgets.QShortcut(QtGui.QKeySequence('Esc'), app_scr.Dialog)
     app_scr.esc.activated.connect(summa)
     
-    app_scr.end_button.clicked.connect(action)
+    app_scr.end.activated.connect(action)
     app_scr.tableWidget.sortByColumn(2, QtCore.Qt.DescendingOrder)
     
     

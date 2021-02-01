@@ -141,42 +141,22 @@ def Cross_connect(self):
 
 
 
-def Table_gen(self, _teams, teams, teams_info):
+def Score_Table_gen(self, _teams, teams, teams_info):
     
     def headers():
-        self.tableWidget.setColumnCount(3)
-        self.tableWidget.setRowCount(len(teams))
+        self.tableWidget.setColumnCount(len(teams))
+        self.tableWidget.setRowCount(1)
         
         for i in range(2):
             self.tableWidget.setHorizontalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
-        self.tableWidget.setHorizontalHeaderLabels(['Teams', 'Members', 'Score'])
-        self.tableWidget.setColumnWidth(0, 100)
-        self.tableWidget.setColumnWidth(2, 10)
+        self.tableWidget.setHorizontalHeaderLabels(teams)
+        # self.tableWidget.setColumnWidth(0, 100)
+        # self.tableWidget.setColumnWidth(2, 10)
 
         for i in range(len(_teams)):
             self.tableWidget.setVerticalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
-            self.tableWidget.setRowHeight(i,100)
-        self.tableWidget.setVerticalHeaderLabels(['' for i in range(len(_teams))])
-     
-    def teams_fill():
-        for i in range(len(teams)):
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setFlags(QtCore.Qt.ItemIsEnabled)
-            item.setText(teams[i])
-            self.tableWidget.setItem(i, 0, item)
-        
-    def memebers():
-        
-        for i in range(len(teams)):
-        
-            membs = ', '.join(teams_info[teams[i]])
-        
-            item = QtWidgets.QTableWidgetItem()
-            item.setTextAlignment(QtCore.Qt.AlignCenter)
-            item.setFlags(QtCore.Qt.ItemIsEnabled)
-            item.setText(membs)
-            self.tableWidget.setItem(i, 1, item)
+            # self.tableWidget.setRowHeight(i,100)
+        self.tableWidget.setVerticalHeaderLabels([''])
         
     def score():
         for i in range(len(teams)):
@@ -185,11 +165,9 @@ def Table_gen(self, _teams, teams, teams_info):
             item.setFlags(QtCore.Qt.ItemIsEnabled)
             item.setText('0')
             exec(f'''self.{_teams[i]}_score_disp = item''')
-            self.tableWidget.setItem(i, 2, item)
+            self.tableWidget.setItem(0, i, item)
     
     headers()
-    teams_fill()
-    memebers()
     score()
     
 def Modify_Disp_Score(self, score):
