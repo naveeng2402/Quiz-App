@@ -95,8 +95,9 @@ def teams_screen():
 def App():
     
     def action():
-        # x = app_scr.tableWidget.item(0,1).text()
-        end("SHIFT+ESC")
+        x = tuple(sorted(app_scr.score.items(), key= lambda item : item[1], reverse=True))
+        print(x)
+        end(", ".join(teams_info[" ".join(x[0][0].split("_"))]))
     
     widget.setStyleSheet('''
                          border-image: url(BG/BG_blur.jpg)

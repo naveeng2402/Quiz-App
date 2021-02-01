@@ -156,7 +156,7 @@ def TeamTableGen(self, _teams, teams, teams_info):
             item = QtWidgets.QTableWidgetItem()
             item.setTextAlignment(QtCore.Qt.AlignCenter)
             item.setFlags(QtCore.Qt.ItemIsEnabled)
-            item.setText(" ,".join(teams_info[teams[i]]))
+            item.setText(", ".join(teams_info[teams[i]]))
             self.teamTable.setItem(i,0,item)  
     headers()
     fill() 
@@ -176,7 +176,7 @@ def Score_Table_gen(self, _teams, teams, teams_info):
         for i in range(len(_teams)):
             self.tableWidget.setVerticalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
             # self.tableWidget.setRowHeight(i,100)
-        self.tableWidget.setVerticalHeaderLabels([''])
+        self.tableWidget.setVerticalHeaderLabels(['Score'])
         
     def score():
         for i in range(len(teams)):
