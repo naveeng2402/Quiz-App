@@ -182,5 +182,6 @@ if __name__ == '__main__':
     # screen = Welcome(data['Hosts'], data['Topic']).Dialog
     # widget.addWidget(screen)
     widget.setWindowIcon(QtGui.QIcon('Others/icon.svg'))
+    widget.showMaximized()
     widget.show()
     sys.exit(app.exec_())

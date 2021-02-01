@@ -12,7 +12,7 @@ Note: You can know more about editing the json file in the readme.md or readme.t
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from time import sleep
-from App.App_gen import Scoring_gen, Modify_scroing, Scoring_Actions, Score_Table_gen, Navig_gen, Questions_gen, Navig_connect, Qn_Connect, scores, Timer_Connect
+from App.App_gen import Scoring_gen, Modify_scroing, TeamTableGen, Scoring_Actions, Score_Table_gen, Navig_gen, Questions_gen, Navig_connect, Qn_Connect, scores, Timer_Connect
 
 class AppMain():
     
@@ -65,7 +65,34 @@ class AppMain():
         self.Dig_frame_grid = QtWidgets.QGridLayout(self.Dig_frame) 
         self.Dig_frame_grid.setObjectName("Dig_frame_grid")
         
-        self.Main_splitter = QtWidgets.QSplitter(self.Dig_frame)
+        self.Root_Splitter = QtWidgets.QSplitter(self.Dig_frame)
+        self.Root_Splitter.setOrientation(QtCore.Qt.Horizontal)
+        self.Root_Splitter.setObjectName("Root_Splitter")
+        self.Dig_frame_grid.addWidget(self.Root_Splitter)
+        
+        
+        self.teamTable = QtWidgets.QTableWidget(self.Root_Splitter)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.teamTable.sizePolicy().hasHeightForWidth())
+        self.teamTable.setSizePolicy(sizePolicy)
+    
+        self.teamTable.setMinimumSize(QtCore.QSize(0, 0))
+        self.teamTable.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.teamTable.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.teamTable.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.teamTable.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.teamTable.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.teamTable.setAlternatingRowColors(False)
+        self.teamTable.setSortingEnabled(True)
+        self.teamTable.setObjectName("teamTable")
+        self.teamTable.horizontalHeader().setStretchLastSection(True)
+        self.teamTable.verticalHeader().setStretchLastSection(True)
+        
+        TeamTableGen(self, _teams = self._Team_Names, teams = self.Team_Names, teams_info=self.Team_Info)
+                
+        self.Main_splitter = QtWidgets.QSplitter(self.Root_Splitter)
         self.Main_splitter.setOrientation(QtCore.Qt.Vertical)
         self.Main_splitter.setObjectName("Main_splitter")  
 
@@ -187,7 +214,6 @@ class AppMain():
         
         scores(self, self.rounds_Info)
         
-        self.Dig_frame_grid.addWidget(self.Main_splitter)
         
         
         # for i in self.stackedWidget.children(): print(i.objectName())

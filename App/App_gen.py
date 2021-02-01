@@ -139,7 +139,27 @@ def Cross_connect(self):
         crosss[i].clicked.connect(lambda _, i=i: Cross_Clicked(self, crosss[i].objectName()[:-6], self.score, self.s_Minus))
 
 
+def TeamTableGen(self, _teams, teams, teams_info):
+    
+    def headers():
+        self.teamTable.setColumnCount(1)
+        self.teamTable.setRowCount(len(teams))
+        for i in range(1):
+            self.teamTable.setHorizontalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
+        self.teamTable.setHorizontalHeaderLabels([""])
 
+        for i in range(len(teams)):
+            self.teamTable.setVerticalHeaderItem(i, QtWidgets.QTableWidgetItem().setTextAlignment(QtCore.Qt.AlignCenter))
+        self.teamTable.setVerticalHeaderLabels(teams)
+    def fill():
+        for i in range(len(teams)):
+            item = QtWidgets.QTableWidgetItem()
+            item.setTextAlignment(QtCore.Qt.AlignCenter)
+            item.setFlags(QtCore.Qt.ItemIsEnabled)
+            item.setText(" ,".join(teams_info[teams[i]]))
+            self.teamTable.setItem(i,0,item)  
+    headers()
+    fill() 
 
 def Score_Table_gen(self, _teams, teams, teams_info):
     
