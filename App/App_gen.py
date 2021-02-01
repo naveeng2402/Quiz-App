@@ -258,15 +258,17 @@ def Questions_gen(self, qns, rounds, _rounds, rounds_info):
         exec(f'''self.{_rounds[i]}_Info_Layout = QtWidgets.QVBoxLayout(self.{_rounds[i]}_Info)''')
         eval(f'''self.{_rounds[i]}_Info_Layout.setObjectName('{_rounds[i]}_Info_Layout')''')
         
-        exec(f'''self.{_rounds[i]}_Info_Label = QtWidgets.QLabel('Round {i+1}', self.{_rounds[i]}_Info)''')
+        text = f"<p style='text-align: center; font-size: 50px;'><strong>Round {i+1}</strong></p>"
+        exec(f'''self.{_rounds[i]}_Info_Label = QtWidgets.QLabel(text, self.{_rounds[i]}_Info)''')
+        eval(f'''self.{_rounds[i]}_Info_Label.setSizePolicy(QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed))''')
         eval(f'''self.{_rounds[i]}_Info_Label.setAlignment(QtCore.Qt.AlignCenter)''')
         eval(f'''self.{_rounds[i]}_Info_Label.setObjectName('{_rounds[i]}_Info_Label')''')
         eval(f'''self.{_rounds[i]}_Info_Layout.addWidget(self.{_rounds[i]}_Info_Label)''')
         
-        exec(f'''self.{_rounds[i]}_Rules = QtWidgets.QTextBrowser(self.{_rounds[i]}_Info)''')
+        exec(f'''self.{_rounds[i]}_Rules = QtWidgets.QLabel(self.{_rounds[i]}_Info)''')
         eval(f'''self.{_rounds[i]}_Rules.setObjectName("{_rounds[i]}_Rules")''')
-        eval(f'''self.{_rounds[i]}_Rules.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)''')
-        eval(f'''self.{_rounds[i]}_Rules.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)''')
+        # eval(f'''self.{_rounds[i]}_Rules.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)''')
+        # eval(f'''self.{_rounds[i]}_Rules.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)''')
         eval(f'''self.{_rounds[i]}_Rules.setText(rounds_info['{rounds[i]}']['rules'])''')
         eval(f'''self.{_rounds[i]}_Info_Layout.addWidget(self.{_rounds[i]}_Rules)''')
         

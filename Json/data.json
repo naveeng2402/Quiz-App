@@ -1,5 +1,5 @@
 {
-    "color": true,
+    "color": false,
 
     "Welcome":  
         {
@@ -21,7 +21,7 @@
             "Round 1":
                 {
                     "nos"   : 1,
-                    "rules" : "<p style='text-align: center;font-size:50px'>Rules for Round 1</p>",
+                    "rules" : "<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'>Points</span>: 10</p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'>BouncedPoints</span>: 5</p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'>NegativePoints</span>:0</p>\n<p style='text-align: center; font-size: 30px;'><span style='color: #ff0000;'>Time</span>: 10 s</p>",
                     "tick"  : 50,
                     "plus"  : 25,
                     "minus" : 0,
