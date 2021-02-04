@@ -4,6 +4,48 @@ from threading import Thread
 from random import randint
 from time import sleep
 
+col_circle_btn = """QPushButton::!hover
+                    {
+                    border-radius:25px;
+                    border : 2px solid black;
+                    background-color: rgb(0, 175, 0)
+                    }
+
+                    QPushButton::hover
+                    {
+                    border-radius:25px;
+                    border : 4px solid black;
+                    background-color: rgb(0, 150, 0)
+                    }
+
+                    QPushButton::pressed
+                    {	
+                    border-radius:20px;
+                    border : 4px solid black;
+                    background-color: rgb(100, 100, 100);
+                    color: rgb(255, 255, 255);
+                    }"""
+
+circle_btn     = """QPushButton::!hover
+                    {
+                    border-radius:25px;
+                    border : 2px solid black;
+                    }
+
+                    QPushButton::hover
+                    {
+                    border-radius:25px;
+                    border : 4px solid black;
+                    }
+
+                    QPushButton::pressed
+                    {	
+                    border-radius:20px;
+                    border : 4px solid black;
+                    background-color: rgb(100, 100, 100);
+                    color: rgb(255, 255, 255);
+                    } """
+
 def Scoring_gen(self, teams, _teams, source, layout):
     
     for i in range(len(teams)):
@@ -200,6 +242,8 @@ def Modify_Disp_Score(self, score):
 def Navig_gen(self, rounds_info, rounds, _rounds):
     
     row = -1
+    self.round_qn_btns = []
+    
     for i in range(len(rounds)):
         
         row += 1
@@ -210,33 +254,18 @@ def Navig_gen(self, rounds_info, rounds, _rounds):
         eval(f'''self.{_rounds[i]}.setObjectName("{_rounds[i]}")''')
         eval(f'''self.{_rounds[i]}.setStyleSheet(\'\'\'border: 2px dashed black\'\'\')''')
         eval(f'''self.Navigation_Layout.addWidget(self.{_rounds[i]}, {row}, 0, 1, 3)''')
+        
         for j in range(rounds_info[rounds[i]]['nos']):
             if j%3 == 0: row += 1
             exec(f'''self.{_rounds[i]}_Q{j+1} = QtWidgets.QPushButton(self.Navigation_Contents)''')
             eval(f'''self.{_rounds[i]}_Q{j+1}.setText('Q {j+1}')''')
             eval(f'''self.{_rounds[i]}_Q{j+1}.setMinimumSize(50, 50)''')
             eval(f'''self.{_rounds[i]}_Q{j+1}.setObjectName("{_rounds[i]}_Q{j+1}")''')
-            eval(f'''self.{_rounds[i]}_Q{j+1}.setStyleSheet(\'\'\'QPushButton::!hover
-                                                                    {{
-                                                                    border-radius:25px;
-                                                                    border : 2px solid black;
-                                                                    }}
-
-                                                                    QPushButton::hover
-                                                                    {{
-                                                                    border-radius:25px;
-                                                                    border : 4px solid black;
-                                                                    }}
-
-                                                                    QPushButton::pressed
-                                                                    {{	
-                                                                    border-radius:20px;
-                                                                    border : 4px solid black;
-                                                                    background-color: rgb(100, 100, 100);
-                                                                    color: rgb(255, 255, 255);
-                                                                    }}\'\'\')''')
+            eval(f'''self.{_rounds[i]}_Q{j+1}.setStyleSheet(circle_btn)''')
             
             eval(f'''self.Navigation_Layout.addWidget(self.{_rounds[i]}_Q{j+1}, {row}, {j%3}, 1, 1)''')
+            eval(f'''self.round_qn_btns.append(self.{_rounds[i]}_Q{j+1})''')
+        
         # Generating Space Between Rounds
         row += 1
         exec(f'''self.{_rounds[i]}_spacer = QtWidgets.QLabel(self.Navigation_Contents)''')
@@ -244,6 +273,7 @@ def Navig_gen(self, rounds_info, rounds, _rounds):
         eval(f'''self.{_rounds[i]}_spacer.setObjectName('{_rounds[i]}_spacer')''')
         eval(f'''self.Navigation_Layout.addWidget(self.{_rounds[i]}_spacer, {row}, 0, 1, 3) ''')
         
+    # print([i.objectName() for i in self.round_qn_btns])
         
         
 
@@ -440,14 +470,17 @@ def Navig_connect(self, _rounds):
     # print([(i[0].objectName(), i[1].objectName()) for i in qns])
     
 
-    def connect(widget):
+    def connect(widget, btn = ''):
         self.stackedWidget.setCurrentWidget(widget)
-    
+        if btn != '':
+            for i in self.round_qn_btns:
+                i.setStyleSheet(circle_btn)
+            btn.setStyleSheet(col_circle_btn)
     for k in infos:
         k[0].clicked.connect(lambda _, widget = k[1]: connect(widget))
         
     for k in qns:
-        k[0].clicked.connect(lambda _, widget = k[1]: connect(widget))
+        k[0].clicked.connect(lambda _, widget = k[1], btn = k[0]: connect(widget, btn))
     
     
     
