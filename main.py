@@ -1,7 +1,9 @@
 import json
 import sys
+from time import sleep
 # from screeninfo import get_monitors
 from PyQt5 import QtCore, QtWidgets, QtGui
+from playsound import playsound
 
 from Welcome.Welcome import Welcome
 from Teams.Teams_main import TeamsMain
@@ -97,7 +99,15 @@ def App():
     def action():
         x = tuple(sorted(app_scr.score.items(), key= lambda item : item[1], reverse=True))
         print(x)
-        end(", ".join(teams_info[" ".join(x[0][0].split("_"))]))
+        winners_Lst = [x[0][0]]
+        for i in x[1:]:
+            if x[0][1] == i[1] : winners_Lst.append(i[0])
+        print(winners_Lst)
+        winners = ''
+        for i in winners_Lst:
+            winners += ", ".join(teams_info[" ".join(i.split("_"))]) + " | "
+        print(winners[:-2])
+        end(winners[:-2])
     
     widget.setStyleSheet('''
                          border-image: url(BG/BG_blur.jpg)
@@ -149,6 +159,7 @@ def end(winners = "SRIDEVI"):
     end_screen.frame.setStyleSheet("""
                                  border-image: url(BG/Trans.png)
                                    """)
+    playsound("Audio/end.mp3")
     
 
 if __name__ == '__main__':
