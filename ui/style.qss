@@ -1,0 +1,25 @@
+QListView
+{
+	show-decoration-selected: 1;
+	background-color: rgba(0, 0, 0, 0);
+    color:rgb(255,0,0);
+	font: 75 36pt "Ubuntu Condensed";
+}
+QListView::item:focus
+{
+	border: none;
+	background-color:rgba(0,0,0,0);
+	outline:none;
+}
+
+QListView::item:selected 
+{
+	background-color: rgb(255,0,0);
+	border: 1px solid #990033;
+	border-radius: 26px;}
+
+QPushButton[accessibleName='back']
+{
+	border-radius: 25px;
+	border: 2px solid rgb(0,0,0);	
+}
