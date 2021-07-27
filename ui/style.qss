@@ -23,3 +23,15 @@ QPushButton[accessibleName='back']
 	border-radius: 25px;
 	border: 2px solid rgb(0,0,0);	
 }
+
+QLabel[accessibleName='hosts']
+{
+	font: bold;
+	font-size: 30px;
+	border-radius: 30px;
+	border: 5px dashed rgb(0, 255, 0);
+	padding-top: 	1em;
+	padding-bottom: 1em;
+	padding-right:	3em;
+	padding-left:  	3em;
+}
