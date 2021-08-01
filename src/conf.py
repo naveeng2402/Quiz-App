@@ -44,3 +44,6 @@ def set_style_sheet(app:QApplication, ss_path:str)-> None:
     with open(ss_path) as f:
         ss = f.read()
     app.setStyleSheet(ss)
+    
+def dummy():
+    pass
