@@ -82,5 +82,7 @@ class Ui_quiz_selected(object):
         _translate = QtCore.QCoreApplication.translate
         quiz_selected.setWindowTitle(_translate("quiz_selected", "Form"))
         self.back.setAccessibleName(_translate("quiz_selected", "back"))
+        self.modify_quiz.setAccessibleName(_translate("quiz_selected", "quiz_selected_btns"))
         self.modify_quiz.setText(_translate("quiz_selected", "Modify Quiz"))
+        self.start_quiz.setAccessibleName(_translate("quiz_selected", "quiz_selected_btns"))
         self.start_quiz.setText(_translate("quiz_selected", "Start Quiz"))

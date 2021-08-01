@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QStackedWidget
 from Screens.quiz_selected import QuizSelected
+from Screens.teams import Teams
 from Screens.welcome import Welcome
 
 import conf
@@ -25,4 +26,11 @@ def welcome_scr(data:dict):
     
     conf.STACK.addWidget(scr.dig)
     conf.screens_widgets('welcome_scr', scr.dig)
+    
+def teams_scr(data:dict):
+    scr = Teams(data)
+    scr.dig.show()
+    
+    conf.STACK.addWidget(scr.dig)
+    conf.screens_widgets('teams_scr', scr.dig)
     

@@ -1,8 +1,10 @@
 from typing import List
 from PyQt5 import QtCore
-from PyQt5.QtWidgets import QDialog, QLabel, QSizePolicy
+from PyQt5.QtWidgets import QDialog, QLabel
 
+import conf
 from UI import Ui_welcome
+import screen_functions  
 
 class Welcome:
     def __init__(self, data:dict) -> None:
@@ -14,6 +16,12 @@ class Welcome:
         self.hosts = data['Hosts']
         
         dynamic_ui(self.ui, self.topic, self.hosts)
+
+        self.ui.start_quiz.clicked.connect(lambda: self.start())
+        
+    def start(self):
+        screen_functions.teams_scr(conf.CONFIG['Teams'])
+        conf.STACK.setCurrentWidget(conf.SCREENS_WIDGETS['teams_scr'])
 
 
 def dynamic_ui(self: Ui_welcome, topic_name: str, hosts: List[str]):

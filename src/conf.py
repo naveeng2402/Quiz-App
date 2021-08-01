@@ -1,5 +1,5 @@
 import json, os
-from PyQt5.QtWidgets import QApplication, QStackedWidget, QWidget
+from PyQt5.QtWidgets import QApplication, QSizePolicy, QStackedWidget, QWidget
 
 
 QUIZ_LIST:list
@@ -9,6 +9,9 @@ QNS:dict
 STACK:QStackedWidget
 APP:QApplication
 SCREENS_WIDGETS:dict = {}
+
+size_Expanding:QSizePolicy.Policy = QSizePolicy.Expanding
+size_Preferred:QSizePolicy.Policy = QSizePolicy.Preferred
 
 
 def get_json_data(path) -> dict:

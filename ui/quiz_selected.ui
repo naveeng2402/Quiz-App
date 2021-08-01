@@ -77,6 +77,9 @@
              <height>50</height>
             </size>
            </property>
+           <property name="accessibleName">
+            <string>quiz_selected_btns</string>
+           </property>
            <property name="text">
             <string>Modify Quiz</string>
            </property>
@@ -95,6 +98,9 @@
              <width>0</width>
              <height>50</height>
             </size>
+           </property>
+           <property name="accessibleName">
+            <string>quiz_selected_btns</string>
            </property>
            <property name="text">
             <string>Start Quiz</string>

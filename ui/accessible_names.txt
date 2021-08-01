@@ -1,0 +1,15 @@
+UNIVERSAL::
+    back -> back
+
+quiz_list::
+    NONE
+
+quiz_selected::
+    btns -> quiz_selected_btns
+
+welcome::
+    host_names_label -> hosts
+
+teams::
+    label -> teams_labels
+    line_edits -> teams_input

@@ -35,3 +35,16 @@ QLabel[accessibleName='hosts']
 	padding-right:	3em;
 	padding-left:  	3em;
 }
+
+QLabel[accessibleName='teams_labels']
+{
+	font: bold;
+	font-size: 100px;
+	border:5px dashed yellow;
+}
+
+QLineEdit[accessibleName='teams_input']
+{
+	border: 0.5px solid red;
+	border-radius: 30px;  
+}
